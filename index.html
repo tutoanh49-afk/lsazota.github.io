@@ -2,100 +2,102 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đề Cương Ôn Tập Lịch Sử Lớp 10 Cuối Kì 1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ĐỀ CƯƠNG ÔN TẬP LỊCH SỬ LỚP 10 - CUỐI KÌ 1</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: { colors: { primary: '#1C3FAA', success: '#91C714', danger: '#D32929' } } }
+        }
+    </script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f4f8;
-            color: #333;
-            margin: 0;
-            padding: 20px;
+        body { font-family: 'Roboto', system-ui, sans-serif; background: #f1f5f8; margin: 0; }
+        .container { max-width: 900px; margin: 0 auto; padding: 16px; }
+        .card { background: white; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); overflow: hidden; }
+        .header { background: linear-gradient(135deg, #1C3FAA, #284EB2); color: white; padding: 32px 24px; text-align: center; }
+        .mode-card { padding: 40px 24px; text-align: center; }
+        .mode-btn { 
+            display: block; width: 100%; max-width: 450px; margin: 20px auto; 
+            padding: 24px; border-radius: 16px; font-size: 18px; font-weight: 600; 
+            background: white; border: 2px solid #dee7ef; color: #1C3FAA; cursor: pointer; 
+            transition: all 0.3s;
         }
-        .container {
-            max-width: 960px;
-            margin: 0 auto;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            padding: 30px;
-        }
-        h1 {
-            text-align: center;
-            color: #0066cc;
-            margin-bottom: 30px;
-        }
-        .question {
-            margin-bottom: 40px;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background: #f9f9f9;
-        }
-        .question-number {
-            font-weight: bold;
-            font-size: 1.2em;
-            color: #0066cc;
-            margin-bottom: 10px;
-        }
-        .options {
-            display: flex;
-            flex-direction: column;
-        }
-        .option {
-            padding: 12px;
-            margin: 8px 0;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        .option:hover {
-            background: #e6f2ff;
-        }
-        .option input {
-            margin-right: 10px;
-        }
-        .submit-btn, .restart-btn {
-            display: block;
-            width: 220px;
-            margin: 40px auto;
-            padding: 15px;
-            background: #0066cc;
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.1em;
-            cursor: pointer;
-        }
-        .submit-btn:hover, .restart-btn:hover {
-            background: #0055aa;
-        }
-        .result {
-            text-align: center;
-            font-size: 1.6em;
-            margin: 40px 0;
-            font-weight: bold;
-        }
+        .mode-btn:hover { border-color: #1C3FAA; transform: translateY(-4px); box-shadow: 0 12px 24px rgba(28,63,170,0.2); }
+        .question-card { padding: 32px 24px; }
+        .question-num { font-size: 24px; font-weight: 700; color: #1C3FAA; margin-bottom: 16px; text-align: center; }
+        .question-text { font-size: 18px; line-height: 1.6; margin-bottom: 24px; }
+        .option { background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 12px; padding: 20px; font-size: 17px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; margin-bottom: 12px; }
+        .option input { margin-right: 16px; transform: scale(1.5); accent-color: #1C3FAA; }
+        .option:hover { background: #eef2ff; border-color: #1C3FAA; }
+        .option.selected { background: #e0e7ff; border-color: #1C3FAA; }
+        .option.correct { background: #d4edda; border-color: #91C714; }
+        .option.wrong { background: #fce8e8; border-color: #D32929; }
+        .submit-btn { width: 100%; padding: 18px; background: #1C3FAA; color: white; border: none; border-radius: 12px; font-size: 19px; font-weight: 600; margin-top: 32px; cursor: pointer; box-shadow: 0 6px 16px rgba(28,63,170,0.3); }
+        .feedback { margin-top: 24px; padding: 24px; border-radius: 12px; font-size: 20px; text-align: center; font-weight: 700; }
+        .feedback.correct { background: #d4edda; color: #155724; }
+        .feedback.wrong { background: #fce8e8; color: #721c24; }
+        .progress { margin: 24px 0; text-align: center; font-size: 18px; color: #1C3FAA; font-weight: 600; }
         .hidden { display: none; }
-        .correct-answer { background: #d4edda !important; border-color: #c3e6cb !important; }
-        .wrong-answer { background: #f8d7da !important; border-color: #f5c6cb !important; }
-        .level {
-            font-size: 0.9em;
-            color: #555;
-            margin-left: 10px;
-        }
+        .streak { font-size: 32px; font-weight: bold; color: #1C3FAA; }
+        .level { font-size: 0.9em; color: #666; margin-left: 8px; }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <h1>ĐỀ CƯƠNG ÔN TẬP LỊCH SỬ LỚP 10 - CUỐI KÌ 1</h1>
-        <form id="quiz-form">
-            <!-- Câu hỏi sẽ được thêm bằng JavaScript -->
-        </form>
-        <button class="submit-btn" id="submit-btn">Nộp Bài</button>
-        <button class="restart-btn hidden" id="restart-btn">Làm Lại</button>
-        <div class="result hidden" id="result"></div>
+    <div class="container pt-8">
+        <div class="card header mb-8">
+            <h1>ĐỀ CƯƠNG ÔN TẬP LỊCH SỬ LỚP 10</h1>
+            <small>Cuối Kì 1</small>
+        </div>
+
+        <!-- Chọn chế độ -->
+        <div id="mode-selection" class="card mode-card">
+            <h2 class="text-2xl font-semibold text-primary mb-8">Chọn chế độ làm bài</h2>
+            <button class="mode-btn" id="mode-exam">
+                <div class="text-2xl mb-4">📝</div>
+                <div class="text-xl font-semibold">Chế độ thi</div>
+                <p class="text-gray-600 mt-4">Làm hết đề rồi nộp một lần, xem kết quả chi tiết</p>
+            </button>
+            <button class="mode-btn" id="mode-challenge">
+                <div class="text-2xl mb-4">⚔️</div>
+                <div class="text-xl font-semibold">Chế độ thử thách</div>
+                <p class="text-gray-600 mt-4">Sai 1 câu là làm lại từ đầu!</p>
+            </button>
+        </div>
+
+        <!-- Khu vực làm bài -->
+        <div id="quiz-area" class="hidden">
+            <!-- Chế độ thi -->
+            <div id="exam-mode" class="hidden">
+                <div id="exam-questions"></div>
+                <button class="submit-btn" id="submit-exam">Nộp Bài & Chấm Điểm</button>
+                <div id="exam-result" class="hidden card mt-8 text-center py-12">
+                    <h2 class="text-3xl font-bold text-primary mb-6">Kết quả</h2>
+                    <div id="exam-result-text" class="text-4xl font-bold mb-8"></div>
+                    <button class="submit-btn mt-8" id="back-to-mode">Quay lại chọn chế độ</button>
+                </div>
+            </div>
+
+            <!-- Chế độ thử thách -->
+            <div id="challenge-mode" class="hidden">
+                <div class="card question-card">
+                    <div class="progress" id="challenge-progress"></div>
+                    <div class="text-center mb-6">
+                        <div class="streak" id="current-streak">0</div>
+                        <div class="text-lg text-gray-600">Chuỗi đúng liên tiếp</div>
+                    </div>
+                    <div id="current-question"></div>
+                    <button class="submit-btn hidden" id="submit-current">Nộp Câu Này</button>
+                    <button class="submit-btn hidden" id="next-question">Câu Tiếp Theo</button>
+                    <div id="challenge-feedback" class="feedback hidden"></div>
+                </div>
+                <div id="challenge-result" class="hidden card mt-8 text-center py-12">
+                    <h2 class="text-3xl font-bold text-primary mb-6">Kết quả thử thách</h2>
+                    <div id="challenge-result-text" class="text-4xl font-bold mb-8"></div>
+                    <button class="submit-btn mt-8" id="back-to-mode-challenge">Quay lại chọn chế độ</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -121,7 +123,7 @@
             { question: "Câu 18. Tác phẩm nào dưới đây không thuộc tứ đại danh tác của văn học Trung Hoa thời trung đại?", options: ["A. Hồng lâu mộng", "B. Tam quốc diễn nghĩa", "C. Đậu Nga oan", "D. Tây du kí"], correct: 2, level: "NB" },
             { question: "Câu 19. Ấn Độ là quê hương của 2 tôn giáo nào dưới đây?", options: ["A. Phật giáo và Ki-tô giáo", "B. Hồi giáo và Phật giáo", "C. Hin-đu giáo và Phật giáo", "D. Ki-tô giáo và Hồi giáo"], correct: 2, level: "NB" },
             { question: "Câu 20. Các thành tựu văn hóa Ấn Độ có ảnh hưởng mạnh mẽ đến khu vực nào trên thế giới?", options: ["A. Đông Bắc châu Phi", "B. Trung Mỹ và Nam Mỹ", "C. Đông Âu và Nam Âu", "D. Đông Nam Á"], correct: 3, level: "TH" },
-            { question: "Câu 21. Các thành tựu nghệ thuật kiến trúc - điêu khắc của Ấn Độ thời cổ - trung đại phản ánh điều gì?", options: ["A. Quyền lực và tính chuyên chế của các Pha-ra-ông", "B. Ảnh hưởng của Thiên Chúa giáo tới đời sống của con người", "C. Trình độ phát triển cao của con người và ảnh hưởng của tôn giáo", "D. Sự giao lưu, tiếp biến giữa văn hóa Ấn Độ với văn hóa Trung Quốc"], correct: 3, level: "NB" },
+            { question: "Câu 21. Các thành tựu nghệ thuật kiến trúc - điêu khắc của Ấn Độ thời cổ - trung đại phản ánh điều gì?", options: ["A. Quyền lực và tính chuyên chế của các Pha-ra-ông", "B. Ảnh hưởng của Thiên Chúa giáo tới đời sống của con người", "C. Trình độ phát triển cao của con người và ảnh hưởng của tôn giáo", "D. Sự giao lưu, tiếp biến giữa văn hóa Ấn Độ với văn hóa Trung Quốc"], correct: 2, level: "NB" },
             { question: "Câu 22. Từ rất sớm, người Ấn Độ cổ đại có chữ viết riêng, đó là", options: ["A. chữ Hán, chữ Nôm,…", "B. chữ Phạn, chữ Bra-mi,…", "C. chữ hình nêm, chữ Hangul,…", "D. chữ Pa-li và chữ La-tinh,…"], correct: 1, level: "NB" },
             { question: "Câu 23. Biểu tượng trên quốc huy của nước Cộng hòa Ấn Độ hiện nay lấy cảm hứng từ thành tựu nào của người Ấn Độ cổ đại?", options: ["A. Đỉnh trụ cột đá A-sô-ca", "B. Đại bảo tháp San-chi", "C. Lăng mộ Ta-giơ Ma-han", "D. Chim bồ câu và cành ô-liu"], correct: 0, level: "VD" },
             { question: "Câu 24. Tại sao nền sản xuất nông nghiệp ở phương Tây cổ đại không thể phát triển được như ở phương Đông cổ đại?", options: ["A. Các quốc gia cổ đại phương Tây hình thành ở ven Địa Trung Hải", "B. Phần lớn lãnh thổ là núi và cao nguyên, đất đai khô rắn, rất khó canh tác", "C. Khí hậu ở đây khắc nghiệt không thuận lợi cho sản xuất nông nghiệp", "D. Sản xuất nông nghiệp không đem lại nguồn lợi lớn bằng thủ công nghiệp và buôn bán"], correct: 1, level: "TH" },
@@ -149,50 +151,48 @@
             { question: "Câu 46. Học thuyết nào sau đây đã trở thành hệ tư tưởng chính thống của chế độ quân chủ chuyên chế ở Trung Quốc?", options: ["A. Đạo giáo", "B. Phật giáo", "C. Nho giáo", "D. Hồi giáo"], correct: 2, level: "TH" },
             { question: "Câu 47. Nội dung nào sau đây phản ánh đúng ý nghĩa của hệ tư tưởng Nho giáo của nền văn minh Trung Hoa?", options: ["A. Tạo cơ sở phát triển cho nền văn minh phương Tây", "B. Nền tảng tư tưởng của chế độ quân chủ Trung Hoa", "C. Thúc đẩy sự phát triển mạnh mẽ của thương nghiệp", "D. Tạo cơ sở cho sự phát triển của khoa học kĩ thuật"], correct: 1, level: "VD" },
             { question: "Câu 48. Thành tựu nào sau đây không phải là phát minh quan trọng về kĩ thuật của người Trung Hoa thời kì cổ - trung đại?", options: ["A. Làm giấy", "B. Động cơ đốt trong", "C. Thuốc súng", "D. La bàn"], correct: 1, level: "VD" },
-
-            // Phần II: Trắc nghiệm Đúng - Sai (mỗi ý là một lựa chọn riêng)
-            { question: "Câu 1a. Đoạn tư liệu cung cấp thông tin về thành tựu của văn minh Ấn Độ trên các lĩnh vực tôn giáo, kiến trúc và điêu khắc.", options: ["Đúng", "Sai"], correct: 1 },
+            // Phần Đúng - Sai
+            { question: "Câu 1a. Đoạn tư liệu cung cấp thông tin về thành tựu của văn minh Ấn Độ trên các lĩnh vực tôn giáo, kiến trúc và điêu khắc.", options: ["Đúng", "Sai"], correct: 0 },
             { question: "Câu 1b. Bà – la – môn giáo, Phật giáo, Giai – na giáo là những tôn giáo được du nhập từ bên ngoài và nhanh chóng phát triển mạnh mẽ ở Ấn Độ.", options: ["Đúng", "Sai"], correct: 1 },
             { question: "Câu 1c. Chùa hang là một loại công trình kiến trúc tiêu biểu của Ấn Độ thuộc dòng kiến trúc tôn giáo.", options: ["Đúng", "Sai"], correct: 0 },
             { question: "Câu 1d. Một trong những yếu tố làm nên giá trị đặc sắc của chùa hang là sự kết hợp hài hòa giữa nghệ thuật kiến trúc với nghệ thuật điêu khắc và hội họa.", options: ["Đúng", "Sai"], correct: 0 },
-
             { question: "Câu 2a. Lăng Ta – giơ Ma – han là một thành tựu tiêu biểu của văn minh Ấn Độ trên lĩnh vực kiến trúc, điêu khắc.", options: ["Đúng", "Sai"], correct: 0 },
             { question: "Câu 2b. Lăng Ta – giơ Ma – han được xây dựng dưới thời kì vương triều Môn – gôn với mục đích ban đầu là làm lăng mộ cho nhà vua Sa – gia – han sau khi ông qua đời.", options: ["Đúng", "Sai"], correct: 1 },
             { question: "Câu 2c. Kiến trúc lăng mộ Ta – giơ Ma – han là sự tổng hòa của nhiều phong cách và yếu tố kiến trúc khác nhau ở cả phương Đông và phương Tây.", options: ["Đúng", "Sai"], correct: 0 },
             { question: "Câu 2d. Sau hơn 300 năm tồn tại, lăng Ta – giơ Ma – han đã được ghi danh là di sản thế giới.", options: ["Đúng", "Sai"], correct: 0 },
-
-            { question: "Câu 3a. Thời cổ đại, ở phương Đông hình thành được tất cả bốn nền văn minh, bao gồm Ai Cập, Lưỡng Hà, Ấn Độ, Trung Hoa.", options: ["Đúng", "Sai"], correct: 1 },
-            { question: "Câu 3b. Trung Hoa là nền văn minh duy nhất ở phương Đông phát triển liên tục từ thời cổ đại đến thời trung đại.", options: ["Đúng", "Sai"], correct: 1 },
+            { question: "Câu 3a. Thời cổ đại, ở phương Đông hình thành được tất cả bốn nền văn minh, bao gồm Ai Cập, Lưỡng Hà, Ấn Độ, Trung Hoa.", options: ["Đúng", "Sai"], correct: 0 },
+            { question: "Câu 3b. Trung Hoa là nền văn minh duy nhất ở phương Đông phát triển liên tục từ thời cổ đại đến thời trung đại.", options: ["Đúng", "Sai"], correct: 0 },
             { question: "Câu 3c. Đặc điểm chung của các nền văn minh ở phương Đông là đều được hình thành trên lưu vực các con sông lớn.", options: ["Đúng", "Sai"], correct: 0 },
             { question: "Câu 3d. Văn minh phương Tây ra đời muộn hơn văn minh phương Đông và kế thừa toàn bộ những thành tựu của văn minh phương Đông.", options: ["Đúng", "Sai"], correct: 1 },
-
             { question: "Câu 4a. Chữ giáp cốt là một thành tựu về văn học của người Trung Quốc thời cổ đại.", options: ["Đúng", "Sai"], correct: 1 },
             { question: "Câu 4b. Người Ai Cập, người Lưỡng Hà và người Trung Quốc đều sáng tạo ra được chữ viết riêng của mình.", options: ["Đúng", "Sai"], correct: 0 },
             { question: "Câu 4c. Chữ viết của người Ai Cập, Lưỡng Hà và Trung Quốc thời cổ đại lúc đầu được viết trên các chất liệu giấy khác nhau.", options: ["Đúng", "Sai"], correct: 1 },
             { question: "Câu 4d. Hiện nay, các nhà khảo cổ học đã phát hiện được rất nhiều chữ giáp cốt và các tác phẩm văn học đồ sộ viết bằng chữ giáp cốt.", options: ["Đúng", "Sai"], correct: 1 },
-
             { question: "Câu 5a. Cư dân Ai Cập cổ đại viết chữ tượng hình trên mai rùa hoặc xương thú", options: ["Đúng", "Sai"], correct: 1 },
             { question: "Câu 5b. Ấn Độ và Trung Quốc là quê hương của một số tôn giáo được truyền ra bên ngoài.", options: ["Đúng", "Sai"], correct: 0 },
             { question: "Câu 5c. Các công trình kiến trúc của cư dân phương Đông thời cổ đại gắn liền với thành tựu của khoa học tự nhiên.", options: ["Đúng", "Sai"], correct: 0 },
             { question: "Câu 5d. Trong thời cổ đại, cả ba nền văn minh (Ai Cập, Ấn Độ, Trung Hoa) đều có ảnh hưởng đến văn hóa Việt Nam", options: ["Đúng", "Sai"], correct: 1 },
-
             { question: "Câu 6a. Ấn Độ và Trung Hoa vừa là quê hương của một số tôn giáo lớn, vừa là nơi du nhập và phát triển tôn giáo từ bên ngoài.", options: ["Đúng", "Sai"], correct: 0 },
             { question: "Câu 6b. Khác với văn minh Trung Hoa, văn minh Ấn Độ là một nền văn minh mang đậm tính tôn giáo huyền bí và khép kín.", options: ["Đúng", "Sai"], correct: 1 },
             { question: "Câu 6c. Chữ viết của cư dân Ấn Độ và Trung Hoa đều có ảnh hưởng đến chữ viết của cư dân một số nước ở khu vực châu Á.", options: ["Đúng", "Sai"], correct: 0 },
             { question: "Câu 6d. Từ loại hình chữ viết cổ nhất, cư dân Ấn Độ và Trung Hoa đều có sự chỉnh lý và phát triển chữ viết của mình ngày càng hoàn thiện.", options: ["Đúng", "Sai"], correct: 0 },
-
             { question: "Câu 7a. Việc sáng tạo ra hệ thống chữ số tự nhiên là một thành tựu nổi bật của văn minh Ấn Độ trên lĩnh vực Toán học.", options: ["Đúng", "Sai"], correct: 0 },
             { question: "Câu 7b. Hệ thống chữ số tự nhiên được cư dân Ấn Độ sáng tạo ra vào khoảng thế kỉ VIII.", options: ["Đúng", "Sai"], correct: 1 },
             { question: "Câu 7c. Dựa trên các tư liệu lịch sử, hiện nay, hầu hết ý kiến đều cho rằng chữ số 0 là do người Ả Rập sáng tạo nên.", options: ["Đúng", "Sai"], correct: 1 },
             { question: "Câu 7d. Chữ số tự nhiên được sáng tạo từ phương Đông, sau đó được lan truyền rộng rãi sang phương Tây.", options: ["Đúng", "Sai"], correct: 0 }
         ];
 
-        const form = document.getElementById('quiz-form');
-        const submitBtn = document.getElementById('submit-btn');
-        const restartBtn = document.getElementById('restart-btn');
-        const resultDiv = document.getElementById('result');
+        let allQuestions = [];
+        let currentIndex = 0;
+        let streak = 0;
+        let score = 0;
 
-        function shuffleArray(array) {
+        // Xáo trộn toàn bộ đề
+        function initQuestions() {
+            allQuestions = shuffle([...questions]);
+        }
+
+        function shuffle(array) {
             for (let i = array.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
                 [array[i], array[j]] = [array[j], array[i]];
@@ -200,79 +200,151 @@
             return array;
         }
 
-        function loadQuestions() {
-            form.innerHTML = '';
-            // Xáo trộn thứ tự câu hỏi
-            const shuffledQuestions = shuffleArray([...questions]);
+        document.getElementById('mode-exam').addEventListener('click', startExamMode);
+        document.getElementById('mode-challenge').addEventListener('click', startChallengeMode);
 
-            shuffledQuestions.forEach((q, qIndex) => {
-                const div = document.createElement('div');
-                div.className = 'question';
-                let levelText = q.level ? `<span class="level">(${q.level})</span>` : '';
-                div.innerHTML = `<div class="question-number">Câu ${qIndex + 1}:${levelText}</div>
-                                 <div>${q.question}</div>
-                                 <div class="options" id="options-${qIndex}"></div>`;
-                form.appendChild(div);
+        function startExamMode() {
+            initQuestions();
+            document.getElementById('mode-selection').classList.add('hidden');
+            document.getElementById('quiz-area').classList.remove('hidden');
+            document.getElementById('exam-mode').classList.remove('hidden');
+            document.getElementById('challenge-mode').classList.add('hidden');
+            document.getElementById('exam-result').classList.add('hidden');
+            loadAllQuestions();
+        }
 
-                const optionsDiv = document.getElementById(`options-${qIndex}`);
-                // Xáo trộn đáp án
-                const shuffledOptions = shuffleArray(q.options.map((opt, idx) => ({text: opt, correct: idx === q.correct})));
-
-                shuffledOptions.forEach((opt) => {
-                    const label = document.createElement('label');
-                    label.className = 'option';
-                    label.innerHTML = `<input type="radio" name="question-${qIndex}" value="${opt.correct ? 'correct' : 'wrong'}">
-                                       ${opt.text}`;
-                    optionsDiv.appendChild(label);
+        function loadAllQuestions() {
+            const container = document.getElementById('exam-questions');
+            container.innerHTML = '';
+            allQuestions.forEach((q, idx) => {
+                const card = document.createElement('div');
+                card.className = 'card question-card mb-8';
+                let levelSpan = q.level ? `<span class="level">(${q.level})</span>` : '';
+                let html = `<div class="question-num">Câu ${idx + 1}${levelSpan}</div><div class="question-text">${q.question}</div>`;
+                html += '<div class="options flex flex-col gap-4 mt-6">';
+                const shuffled = shuffle(q.options.map((t, i) => ({t, correct: i === q.correct})));
+                shuffled.forEach(op => {
+                    html += `<label class="option"><input type="radio" name="q${idx}" value="${op.correct}"><span>${op.t}</span></label>`;
                 });
+                html += '</div>';
+                card.innerHTML = html;
+                container.appendChild(card);
             });
         }
 
-        function checkAnswers() {
-            let score = 0;
-            const total = questions.length;
-
-            document.querySelectorAll('.question').forEach((qDiv, qIndex) => {
-                const selected = qDiv.querySelector(`input[name="question-${qIndex}"]:checked`);
-                const options = qDiv.querySelectorAll('.option');
-
-                options.forEach(opt => {
-                    const input = opt.querySelector('input');
-                    if (input.value === 'correct') {
-                        opt.classList.add('correct-answer');
-                    }
-                    if (selected && selected === input && input.value !== 'correct') {
-                        opt.classList.add('wrong-answer');
-                    }
+        document.getElementById('submit-exam').addEventListener('click', () => {
+            if (!confirm('Nộp bài nhé?')) return;
+            score = 0;
+            const total = allQuestions.length;
+            allQuestions.forEach((q, idx) => {
+                const selected = document.querySelector(`input[name="q${idx}"]:checked`);
+                document.querySelectorAll(`input[name="q${idx}"]`).forEach(inp => {
+                    const label = inp.parentElement;
+                    if (inp.value === 'true') label.classList.add('correct');
+                    if (inp.checked && inp.value !== 'true') label.classList.add('wrong');
+                    inp.disabled = true;
                 });
-
-                if (selected && selected.value === 'correct') {
-                    score++;
-                }
-
-                // Disable inputs
-                qDiv.querySelectorAll('input').forEach(inp => inp.disabled = true);
+                if (selected && selected.value === 'true') score++;
             });
+            document.getElementById('exam-result-text').innerHTML = `Bạn đúng <span class="text-success">${score}</span> / ${total} câu!`;
+            document.getElementById('exam-result').classList.remove('hidden');
+            document.getElementById('submit-exam').classList.add('hidden');
+        });
 
-            resultDiv.innerHTML = `<div>Kết quả: Bạn đúng <span style="color:green">${score}</span> / ${total} câu!</div>`;
-            resultDiv.classList.remove('hidden');
-            submitBtn.classList.add('hidden');
-            restartBtn.classList.remove('hidden');
+        function startChallengeMode() {
+            initQuestions();
+            currentIndex = 0;
+            streak = 0;
+            document.getElementById('current-streak').textContent = '0';
+            document.getElementById('mode-selection').classList.add('hidden');
+            document.getElementById('quiz-area').classList.remove('hidden');
+            document.getElementById('challenge-mode').classList.remove('hidden');
+            document.getElementById('exam-mode').classList.add('hidden');
+            document.getElementById('challenge-result').classList.add('hidden');
+            showChallengeQuestion();
         }
 
-        submitBtn.addEventListener('click', () => {
-            if (confirm('Bạn chắc chắn muốn nộp bài?')) {
-                checkAnswers();
+        function showChallengeQuestion() {
+            const q = allQuestions[currentIndex];
+            let levelSpan = q.level ? `<span class="level">(${q.level})</span>` : '';
+            let html = `<div class="question-num">Câu ${currentIndex + 1} / ${allQuestions.length}${levelSpan}</div>`;
+            html += `<div class="question-text">${q.question}</div>`;
+            document.getElementById('challenge-progress').innerHTML = `<div class="text-center text-lg font-medium text-primary mb-6">Câu ${currentIndex + 1} / ${allQuestions.length}</div>`;
+
+            if (q.options.length === 2) { // Đúng/Sai
+                html += '<div class="text-gray-600 italic mt-8 text-center">(Câu Đúng - Sai)</div>';
+            }
+
+            html += '<div class="options flex flex-col gap-4 mt-8" id="challenge-options"></div>';
+            document.getElementById('current-question').innerHTML = html;
+
+            const optsDiv = document.getElementById('challenge-options');
+            optsDiv.innerHTML = '';
+            const shuffled = shuffle(q.options.map((t, i) => ({t, correct: i === q.correct})));
+            shuffled.forEach(op => {
+                const label = document.createElement('label');
+                label.className = 'option';
+                label.innerHTML = `<input type="radio" name="challenge-q" value="${op.correct}"><span>${op.t}</span>`;
+                label.onclick = () => {
+                    document.querySelectorAll('#challenge-options .option').forEach(o => o.classList.remove('selected'));
+                    label.classList.add('selected');
+                };
+                optsDiv.appendChild(label);
+            });
+
+            document.getElementById('submit-current').classList.remove('hidden');
+            document.getElementById('next-question').classList.add('hidden');
+            document.getElementById('challenge-feedback').classList.add('hidden');
+        }
+
+        document.getElementById('submit-current').addEventListener('click', () => {
+            const selected = document.querySelector('input[name="challenge-q"]:checked');
+            if (!selected) {
+                alert('Chọn đáp án đi bạn ơi!');
+                return;
+            }
+
+            const isCorrect = selected.value === 'true';
+
+            document.querySelectorAll('#challenge-options .option').forEach(opt => {
+                const inp = opt.querySelector('input');
+                if (inp.value === 'true') opt.classList.add('correct');
+                if (inp.checked && inp.value !== 'true') opt.classList.add('wrong');
+                inp.disabled = true;
+            });
+
+            const feedback = document.getElementById('challenge-feedback');
+
+            if (isCorrect) {
+                streak++;
+                document.getElementById('current-streak').textContent = streak;
+                feedback.className = 'feedback correct';
+                feedback.innerHTML = 'Đúng rồi! Tiếp tục nào 🔥';
+                feedback.classList.remove('hidden');
+                document.getElementById('next-question').classList.remove('hidden');
+            } else {
+                feedback.className = 'feedback wrong';
+                const correctText = allQuestions[currentIndex].options[allQuestions[currentIndex].correct];
+                feedback.innerHTML = `Game Over! 😢<br>Chuỗi đúng: ${streak} câu<br>Đáp án đúng: <strong>${correctText}</strong><br><br>Trang sẽ tải lại sau 5 giây...`;
+                feedback.classList.remove('hidden');
+                setTimeout(() => location.reload(), 5000);
+            }
+
+            document.getElementById('submit-current').classList.add('hidden');
+        });
+
+        document.getElementById('next-question').addEventListener('click', () => {
+            currentIndex++;
+            if (currentIndex >= allQuestions.length) {
+                document.getElementById('challenge-result-text').innerHTML = `HOÀN THÀNH THỬ THÁCH! 🎉<br>Chuỗi đúng liên tiếp: <span class="text-success">${streak}</span> / ${allQuestions.length}`;
+                document.getElementById('challenge-result').classList.remove('hidden');
+            } else {
+                showChallengeQuestion();
             }
         });
 
-        restartBtn.addEventListener('click', () => {
-            location.reload();
-        });
-
-        // Load lần đầu
-        loadQuestions();
+        document.getElementById('back-to-mode').addEventListener('click', () => location.reload());
+        document.getElementById('back-to-mode-challenge').addEventListener('click', () => location.reload());
     </script>
 </body>
-
 </html>
